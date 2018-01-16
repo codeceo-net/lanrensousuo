@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resource/protal.css') }}?12345" type="text/css"/>
+    <script type='text/javascript' src="{{ url_for('static', filename='resource/js/jquery-3.2.1.min.js') }}"></script>
+    <title>懒人搜索-让搜索更简单</title>
+</head>
+<body>
+<div class="head">
+    <ul>
+        <li>
+            <a><img src="{{ url_for('static', filename='resource/img/so_logo.png') }}"></a>
+        </li>
+        {% for dic in clist.list %}
+            <li><a href="{{ url_for('index',id=dic[0]) }}">{{ dic[1] }}</a></li>
+        {% endfor %}
+        <li><a href="{{ url_for('.about') }}">关于我</a></li>
+    </ul>
+</div>
+<div id="content">
+
+    <div class="about">
+
+        <p>此网站用python3.5.0+flask0.12.2+jinja2+mysql 开发，代码结构简单，欢迎新手下载源码阅读，是我第一个web网站。</p>
+
+        <p>github源码地址：<a href="" title="python源码地址">源码</a></p>
+
+        <p>python学习教程：<a href="http://android.myapp.com/myapp/detail.htm?apkName=www.python.com" title="python教程">python教程</a></p>
+
+        <p>python文章记录：<a href="http://itsayer.com/?cat=199" title="python文章记录">python文章记录</a></p>
+
+        <p>python手册2.0地址：<a href="http://www.runoob.com/python/python-tutorial.html" title="python手册2.0">python手册2.0</a></p>
+
+        <p>python手册3.0地址：<a href="http://www.runoob.com/python3/python3-tutorial.html" title="python手册3.0">python手册3.0</a></p>
+        <p>如果对您有用赞助我：alipay:sky-xiaobai@qq.com,白瑾*</p>
+    </div>
+
+
+</div>
+<script>
+    $(function () {
+        $(".list li a").click(function () {
+            var data = $(this).attr('data')
+            $('#engine').attr('src', data);
+            $(".list li").each(function (index, domEle) {
+                $(domEle).removeClass("selected")
+            });
+            $(this).parent('li').addClass("selected")
+        });
+
+    });
+
+</script>
+<div id="footer">
+    &copy; Copyright 2018 by <a href="http://www.itsayer.com" target="_blank">itsayer.com</a>.
+</div>
+</body>

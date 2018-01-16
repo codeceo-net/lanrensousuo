@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+@import url('./common.css');
+
+#content{
+    width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+.flashes{
+   color: red;
+}
+.login{
+    margin: 100px auto;
+    padding:50px 10px;
+    width: 300px;
+    border: 1px solid #999999;
+    border-radius: 10px;
+}
+.login input.text-style{
+    width: 200px;
+}
+
+.login .button{
+
+}
+.head{
+    background: #23cf5f;
+    text-align: left;
+    font-size: 14px;
+}
+.head ul,.head ul li{
+    display: inline-block;
+}
+.head ul li {
+    float: left;
+    margin-left: 20px;
+}
+.head ul li a{
+    color: #ffffff;
+}
+
+.head ul li a:hover, .head ul li a.selected{
+    color: #333;
+}
+.list table{
+    width: 100%;
+}
+.list th{
+    background: #ececec;
+}
+.list tr,.list th, .list td{
+    border: 1px solid #ececec;
+}
+
+.pagination{
+    margin-top: 10px;
+}
+.pagination ul, .pagination li{
+    display: inline-block;
+}
+.pagination li.active a{
+    color: #23cf5f;
+    font-weight: bold;
+}
+.delete-btu{
+    background: #23cf5f;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    padding: 1px 10px;
+}

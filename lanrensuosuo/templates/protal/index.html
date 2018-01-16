@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resource/protal.css') }}?12345" type="text/css"/>
+    <script type='text/javascript' src="{{ url_for('static', filename='resource/js/jquery-3.2.1.min.js') }}"></script>
+    <title>懒人搜索-让搜索更简单</title>
+</head>
+<body>
+<div class="head">
+    <ul>
+        <li>
+            <a><img src="{{ url_for('static', filename='resource/img/so_logo.png') }}"></a>
+        </li>
+        {% for dic in clist.list %}
+
+            <li><a href="{{ url_for('index',id=dic[0]) }}">{{ dic[1] }}</a></li>
+        {% endfor %}
+        <li><a href="{{ url_for('.about')  }}">关于我</a></li>
+    </ul>
+</div>
+<div id="content">
+
+    <div class="fl left">
+        <ul class="list">
+            {% for dic in urls %}
+                {% set outer_loop = loop %}
+            <li {% if outer_loop.index == 1  %}class="selected"{% endif %}><img src="{{ dic[5] }}"/><a
+                    data="http://www.baidu.com">{{ dic[1] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="fl main">
+        <iframe id="engine" name="engine" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true"
+                style="background-color:#fff" src="{% if urls %} {{ urls[0][2] }} {% else %}http://www.itsayer.com{% endif %}"></iframe>
+    </div>
+    <div class="c"></div>
+</div>
+<script>
+    $(function () {
+        $(".list li a").click(function () {
+            var data = $(this).attr('data')
+            $('#engine').attr('src', data);
+            $(".list li").each(function (index, domEle) {
+                $(domEle).removeClass("selected")
+            });
+            $(this).parent('li').addClass("selected")
+        });
+
+    });
+
+</script>
+<div id="footer">
+    &copy; Copyright 2018 by <a href="http://www.itsayer.com" target="_blank">itsayer.com</a>.
+</div>
+</body>

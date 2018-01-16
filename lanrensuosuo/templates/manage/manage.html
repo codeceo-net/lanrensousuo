@@ -1,0 +1,64 @@
+{% extends "manage/base.html" %}
+{% block content %}
+    <div class="head">
+        <ul class="p10">
+            <li><a href="{{ url_for('manage') }}" class="selected">内容管理</a></li>
+            <li><a href="{{ url_for('type') }}">类别管理</a></li>
+            <li><a href="{{ url_for('users') }}">用户管理</a></li>
+        </ul>
+    </div>
+    <div class="list">
+        <form id="data-form" method="post">
+        <table>
+            <thead>
+            <tr>
+                <th width="50px">id</th>
+                <th>标题</th>
+                <th>地址</th>
+                <th>类别</th>
+                <th>图片</th>
+                <th>时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for dic in clist.list %}
+                <tr>
+                    <td><input value="{{ dic[0] }}" type="checkbox" name="id[]"></td>
+                    <td>{{ dic[1] }}</td>
+                    <td><a href="{{ dic[2] }}" target="_blank">{{ dic[1] }}</a></td>
+                    <td>{{ dic[4] }}</td>
+                    <td><img src="{{ dic[5] }}" width="20px" height="20px"></td>
+                    <td>{{ dic[3] }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        <input id="ids" value="" type="hidden" name="ids" />
+        </form>
+
+        <div class="action-box tal mt10 mb10">
+            <label><input type="checkbox" class="selected-btu"><span>&nbsp;&nbsp;全选/全不选&nbsp;&nbsp;</span></label>
+            <a class="button delete-btu" href="{{ url_for('cdelete') }}">删除</a>
+        </div>
+
+        <ul class="pagination">
+            {% if clist.show_shouye_status==1 %}
+                <li class=''><a href='{{ url_for('manage') }}/1'>首页</a></li>
+                <li class=''><a href='{{ url_for('manage') }}/{{ clist.page-1 }}'>上一页</a></li>
+            {% endif %}
+            {% for dic in clist.dic_list %}
+                {% if dic==clist.page %}
+                    <li class="active"><a href="{{ url_for('manage') }}/{{ dic }}">{{ dic }}</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('manage') }}/{{ dic }}">{{ dic }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if clist.page < clist.total %}
+                <li class=''><a href='{{ url_for('manage') }}/{{ clist.page+1 }}'>下一页</a></li>
+                <li class=''><a href='{{ url_for('manage') }}/{{ clist.total }}'>尾页</a></li>
+            {% endif %}
+            共{{ clist.total }}页
+        </ul>
+    </div>
+{% endblock %}

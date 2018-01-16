@@ -1,0 +1,20 @@
+{% extends "manage/base.html" %}
+{% block content %}
+    <div class="login">
+        <div class="mb10">后台管理员登录系统</div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form method="post" action="{{ url_for('dologin') }}">
+            <div><input class='text-style' type="text" name="username" value="" placeholder="请输入用户名"/></div>
+            <div><input class='text-style mt15' type="password" name="password" value="" placeholder="请输入密码"/></div>
+            <div><input class="button mt15" type="submit" name="submit" value="登录"></div>
+        </form>
+    </div>
+{% endblock %}

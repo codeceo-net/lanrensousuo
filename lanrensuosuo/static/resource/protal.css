@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+@import url('./common.css');
+body{
+    background: url("./img/bg.jpg") repeat;
+}
+#content{
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    margin-top: 41px;
+    margin-bottom: 30px;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+.left{
+    box-sizing: border-box;
+    width: 171px;
+    height: 100%;
+    overflow-y:auto!important
+}
+.main{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-left: 170px;
+    height: 100%;
+    overflow: hidden;
+}
+iframe{
+        width: 100%;
+    height: 100%;
+    border: 0;
+}
+.head ul {
+    display: block;
+    width: 100%;
+    height: 41px;
+    line-height: 41px;
+    text-align: left;
+}
+.head ul li{
+    display: inline-block;
+}
+.head ul li img{
+    width: 180px;
+}
+.head ul li{
+    margin-right: 20px;
+}
+.head ul li a{
+    color: #333333;
+    font-size: 16px;
+}
+.list{
+    display: block;
+    height: 100%;
+}
+.list li{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+.list li img{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    margin-top: 7px;
+}
+.list li a{
+    color: #333333;
+    cursor: pointer;
+}
+.list li.selected{
+    background: #fff;
+}
+.list li.selected a,.list li a:hover{
+    color: #2185fd;
+}
+#footer{position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.about{
+    padding: 20px;
+    width: 1000px;
+    margin: 20px auto ;
+    font-size: 16px;
+    background: #fff;
+}

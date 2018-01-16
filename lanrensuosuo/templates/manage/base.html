@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resource/manage.css') }}?12345" type="text/css"/>
+    <script type='text/javascript' src="{{ url_for('static', filename='resource/js/jquery-3.2.1.min.js') }}"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename='resource/js/manage.js') }}"></script>
+    <title>懒人搜索后台管理系统</title>
+</head>
+<body>
+
+
+<div id="content">{% block content %}{% endblock %}</div>
+
+<div id="footer">
+    &copy; Copyright 2018 by <a href="http://www.itsayer.com" target="_blank">itsayer.com</a>.
+</div>
+</body>
